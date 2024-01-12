@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_spotify_ui/data/data.dart';
+// ignore: unused_import
 import 'package:flutter_spotify_ui/widgets/widgets.dart';
 
 class PlaylistScreen extends StatefulWidget {
@@ -33,7 +34,6 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -81,7 +81,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
               Icons.account_circle_outlined,
               size: 30.0,
             ),
-            label: const Text('Marcus Ng'),
+            label: const Text('Gith'),
           ),
           const SizedBox(width: 8.0),
           IconButton(
@@ -106,7 +106,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
           ),
         ),
         child: Scrollbar(
-          isAlwaysShown: true,
+          thumbVisibility: true,
           controller: _scrollController,
           child: ListView(
             controller: _scrollController,
@@ -114,10 +114,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
               horizontal: 20.0,
               vertical: 60.0,
             ),
-            children: [
-              PlaylistHeader(playlist: widget.playlist),
-              TracksList(tracks: widget.playlist.songs),
-            ],
+            children: [],
           ),
         ),
       ),
