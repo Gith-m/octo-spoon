@@ -12,9 +12,7 @@ class PlaylistHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
+    return Row(
           children: [
             Image.asset(
               playlist.imageURL,
@@ -50,8 +48,6 @@ class PlaylistHeader extends StatelessWidget {
                 ],
               ),
             ),
-          ],
-        ),
         const SizedBox(height: 20.0),
         _PlaylistButtons(followers: playlist.followers),
       ],
