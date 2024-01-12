@@ -99,7 +99,7 @@ class __LibraryPlaylistsState extends State<_LibraryPlaylists> {
   Widget build(BuildContext context) {
     return Expanded(
       child: Scrollbar(
-        isAlwaysShown: true,
+        thumbVisibility: true,
         controller: _scrollController,
         child: ListView(
           controller: _scrollController,

@@ -3,25 +3,24 @@ import 'dart:io';
 import 'package:desktop_window/desktop_window.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+// ignore: unused_import
 import 'package:flutter_spotify_ui/data/data.dart';
+// ignore: unused_import
 import 'package:flutter_spotify_ui/models/current_track_model.dart';
+// ignore: unused_import
 import 'package:flutter_spotify_ui/screens/playlist_screen.dart';
+// ignore: unused_import
 import 'package:flutter_spotify_ui/widgets/widgets.dart';
+// ignore: unused_import
 import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  if (!kIsWeb && (Platform.isMacOS || Platform.isLinux || Platform.isWindows)) {
-    await DesktopWindow.setMinWindowSize(const Size(600, 800));
+  if (!kIsWeb && (Platform.isMacOS || Platform.isLinux || Platform.isWindows)) { 
+   await  DesktopWindow.setMinWindowSize(const Size(600, 800));
   }
-  runApp(
-    ChangeNotifierProvider(
-      create: (context) => CurrentTrackModel(),
-      child: MyApp(),
-    ),
-  );
+  runApp(MyApp());
 }
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -34,7 +33,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xFF121212),
         backgroundColor: const Color(0xFF121212),
         primaryColor: Colors.black,
-        accentColor: const Color(0xFF1DB954),
+        hintColor: const Color(0xFF1DB954),
         iconTheme: const IconThemeData().copyWith(color: Colors.white),
         fontFamily: 'Montserrat',
         textTheme: TextTheme(
@@ -75,16 +74,18 @@ class Shell extends StatelessWidget {
           Expanded(
             child: Row(
               children: [
-                if (MediaQuery.of(context).size.width > 800) SideMenu(),
-                const Expanded(
-                  child: PlaylistScreen(playlist: lofihiphopPlaylist),
-                ),
+                SideMenu(),
+                //PlaylistScreen
               ],
             ),
           ),
-          CurrentTrack(),
+          Container(
+            height: 84.0,
+            width: double.infinity,
+            color: Colors.blue,
+          ),
         ],
-      ),
-    );
+    ),
+  );
   }
 }
